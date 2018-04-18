@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Angela's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+
+
+<body class="body body-home">
+  <a href="#maincontent" class="skip">Skip navigation</a>
+  <header>
+    <nav id = "top-nav" class="top-nav">
+      <div class="logo">
+        <a href="index.html" class="logo-text">#DANCEMAP</a>
+          </div>
+            <ul class="no-back">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a class="current-page" href="submit.html">Your Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+    </nav>
+  </header>
+
+  <section class="images">
+    <img class=image4 src="images/dancemap_image6.jpg" alt="Man dancing in Mesr, Iran at a desert party. Photo taken by my Life, the Universe and Everything on April 21, 2011">
+  </section>
+  <section class="images">
+    <img class=image5 src="images/dancemap_image7.jpg" alt="Gnawan musicians and dancers perform songs, rituals and dances during the Taragalte Festival in Ségou, Mali. Photo taken by Sarah Hickson">
+  </section>
+  <section class="images">
+    <img class=image6 src="images/dancemap_image8.jpg" alt="Group dancing two-step in Austin, Texas. Photo taken by Will van Overbeek">
+  </section>
+
+  <main>
+    <div class="submitform" id="maincontent">
+      <form name="application" action="mailto:angela.schopke@gmail.com" method="post" enctype="text/plain">
+        <h1 id="title">Submit your dance story...</h1><br>
+          <hr><br><br>
+
+          <fieldset>
+            <legend>About the <span class="legend-color">#DANCE</span></legend><br>
+            
+            <label class="heading"> Name of the dance you'd like to share:<br>
+              <input type="text" name="dancename" autofocus required>
+              </label>
+            <p>Enter the name of the dance you'd like to share a story about.</p><br>
+
+            <label class="heading">Dance Location</label>
+            <p>Where was this photo / video / text media created?</p>
+            
+            <label>Country:*<br><select id="countries_states2" class="input-medium bfh-countries" data-country="US" required name='country1'><option value="">&nbsp;</option></select></label>
+            <p>Please select the appropriate country from the drop-down menu.</p>
+            
+            <label>Province or State:*<br><select class="input-medium bfh-states" data-country="countries_states1" required name='state1'><option value="">&nbsp;</option></select></label>
+            <p>Please select the appropriate province or state from the drop-down menu.</p>
+            
+            <label>City:*<br><input type="text" name="city" required></label>
+            <p>Please select the appropriate city from the drop-down menu.</p>
+
+            <label> Address:<br><input type="text" id="address" name="address" size="50" placeholder = "1234 N Wells St"></label>
+            <p>Optional. If you fill out, the required input format is "55555 Street Name"</p>
+
+          </fieldset><br><br>
+
+          <hr><br><br>
+
+          <fieldset>
+            <legend><span class="legend-color">#MEDIA</span></legend><br>
+
+            <label class="heading">Photos of the dance</label><br>
+            
+            <label>Upload photos:<br><input type="file" name="photos" accept="application/jpeg, application/png"></label><br><br>
+            
+            <label>Photo credit:<br><input type="text" name="photocredit"></label><br>
+            <p>If you have taken the uploaded photo(s), please note that you are to be credited for the photos. If you did not take the uploaded photo(s), please include the URL of the website(s) you found the photo(s) on, the date(s) they were published, and the name of the photographer(s). We WILL NOT publish any photos without credits.</p><br>
+            
+            <label class="heading">Videos of the dance</label><br>
+
+            <label>Input video URL:<br><input type="url" name="website" placeholder="https://www.youtube.com"></label><br>
+            <p>Currently, we only accept YouTube links. Required input format is "http://www.youtube.com/..." or "https://www.youtube.com/...".</p>
+          </fieldset><br><br>
+
+          <hr><br><br>
+
+          <fieldset>
+            <legend>About <span class="legend-color">#YOU</span></legend><br>
+
+            <label>Country of Submission:*<br><select id="countries_states1" class="input-medium bfh-countries" data-country="US" required name='country2'><option value="">&nbsp;</option></select></label><br>
+            <p>Where are you submitting this story from? Please select the appropriate country from the drop-down menu.</p>
+
+            <label>Province or State:*<br><select class="input-medium bfh-states" data-country="countries_states1" required name='state2'><option value="">&nbsp;</option></select></label><br>
+            <p>Please select the appropriate province or state from the drop-down menu.</p>
+
+            <label>City:*<br><input type="text" name="city2" required></label><br>
+            <p>Required input format is "City Name"</p>
+           
+            <label>Gender:<br><input type="text" name="gender"></label><br> 
+            <p>Which gender do you identify most closely with? Though sometimes it can be difficult to talk about, gender is an important part of many dances and global culture. This info will help us to understand the important lens of diversity that gender lends to the global community. Feel free to make note of as many genders as you identify with, using commas to separate each value.</p> 
+
+            <label>Year of birth:<br><input type="text" name="year"></label><br> 
+            <p>Which year were you born? Like gender, age can be a hard topic to discuss. We feel talking about generational diversity is an important part of understanding our global culture.</p> 
+
+            <label>Email:<br><input type="email" name="email" placeholder = "myname@domain.com" required></label><br>
+            <p>Required input format is "xxx@xxxx.xxx". This email will be used to send you a receipt of your media submission.</p>
+          </fieldset><br>
+          
+
+        <input type="submit" value = "Submit">
+
+    </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>This site was created by Angela Schöpke &copy; 2018</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"></script>
+
+</body>
+</html>

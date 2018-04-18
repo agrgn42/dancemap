@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Angela's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+</head>
+
+
+<body class="body body-home">
+  <a href="#map" class="skip">Skip navigation</a>
+  <header>
+    <nav id = "top-nav" class="top-nav">
+      <div class="logo">
+        <a href="index.html" class="logo-text">#DANCEMAP</a>
+          </div>
+            <ul>
+                <li><a class="current-page" href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="submit.html">Your Story</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+    </nav>
+  </header>
+
+  <div id='map'></div>
+    <script>
+      mapboxgl.accessToken = '{{ACCESS_KEY}}'
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/argrgn/cjfiw80x846p52rrv28nxd11f'
+      });
+
+      var geoJson = "https://agrgn42.github.io/dance.geojson"
+
+      console.log(geoJson)
+
+      map.on('load', function () {
+      map.addSource("dances", {
+          "type": "geojson",
+          "data": geoJson
+          });
+
+      map.addLayer({
+          "id": "dances",
+          "type": "circle",
+          "source": "dances"
+          // "layout": {
+          //     "icon-image": "{marker-symbol}-11",
+          //     "icon-allow-overlap": true
+          //   }
+          });
+      });
+
+      // FeatureCollection featureCollection = FeatureCollection.fromJson(geoJsonString);
+
+      // List<Feature> features = featureCollection.getFeatures();
+
+      // for (Feature f : features) {
+      // if (f.getGeometry() instanceof Point) {
+      //     Position coordinates = (Position) 
+      //     f.getGeometry().getCoordinates();
+      //     map.addMarker(
+      //         new MarkerViewOptions().position(new 
+      //          LatLng(coordinates.getLatitude(),
+      //          coordinates.getLongitude()))
+      //          );
+      //     }
+      // }
+
+      // map.on('mouseenter', 'dances', function(e) {
+      // // Change the cursor style as a UI indicator.
+      // map.getCanvas().style.cursor = 'pointer';
+
+      // var coordinates = e.features[0].geometry.coordinates.slice();
+      // var description = e.features[0].properties.description;
+
+      // // Ensure that if the map is zoomed out such that multiple
+      // // copies of the feature are visible, the popup appears
+      // // over the copy being pointed to.
+      // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      // }
+
+      // // Populate the popup and set its coordinates
+      // // based on the feature found.
+      // popup.setLngLat(coordinates)
+      //     .setHTML(description)
+      //     .addTo(map);
+      // });
+
+      // map.on('mouseleave', 'dances', function() {
+      //     map.getCanvas().style.cursor = '';
+      //     popup.remove();
+      // });
+
+      map.on('click', function(e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['dances']
+      });
+      if (!features.length) {
+        return;
+      }
+      var feature = features[0];
+      var popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h3>' + feature.properties.Title + '</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map);
+        $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
+      });
+
+
+
+      // map.markerLayer.on('click', function(e) {
+      // var features = map.queryRenderedFeatures(e.point, {
+      //   layers: map.markerLayer.setGeoJSON(geoJson)
+      // });
+
+      // if (!features.length) {
+      //   return;
+      // }
+
+      // var feature = features[0];
+
+      // var popup = new mapboxgl.Popup({ offset: [0, -15] })
+      //   .setLngLat(feature.geometry.coordinates)
+      //   .setHTML('<h3>' + feature.properties.photo_title + '</h3><h3><a class="maplink" href=' + feature.properties.photo_url + '>' +feature.properties.photo_url + '</a></h3>')
+      //   .setLngLat(feature.geometry.coordinates)
+      //   .addTo(map);
+      //   $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
+
+      // });
+    </script>
+
+  <div class="cover"></div>
+  <div class="popup">
+      <div>
+      <p class='pintro-page'>Welcome to #DANCEMAP. Click markers on the map to see what people are "saying" about dance in photos! Follow the hyperlinks at each marker to see the photo from that location. Add your dance photo, video, or text to the map by submitting a story through the "Your Story" page! Click outside of this box to begin navigating the map.</p>
+      </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+        $(".popup").fadeIn(500);
+        $(".cover").fadeIn(500);
+    });
+  
+  $(".cover").click(function () {
+      $(".popup").fadeOut(500);
+      $(".cover").fadeOut(500);
+  });
+  </script>
+
+  <footer>
+    <p>This site was created by Angela Schöpke &copy; 2018</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

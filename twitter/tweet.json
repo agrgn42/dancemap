@@ -1,0 +1,991 @@
+{
+    "statuses": [
+        {
+            "created_at": "Tue Apr 10 18:02:29 +0000 2018",
+            "id": 983767185733636097,
+            "id_str": "983767185733636097",
+            "text": "@ChiChingChingJA Rock Di World \ud83c\udf0d Remix Ft @fatmanscoop @stonebwoyb @patorankingfire \n\nE No Be Say By Force Wey We D\u2026 https://t.co/hgOS2nnoo0",
+            "truncated": true,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                    {
+                        "screen_name": "ChiChingChingJA",
+                        "name": "$ Chi Chingg $$",
+                        "id": 137117594,
+                        "id_str": "137117594",
+                        "indices": [
+                            0,
+                            16
+                        ]
+                    },
+                    {
+                        "screen_name": "fatmanscoop",
+                        "name": "Fatman Scoop",
+                        "id": 27914138,
+                        "id_str": "27914138",
+                        "indices": [
+                            42,
+                            54
+                        ]
+                    },
+                    {
+                        "screen_name": "stonebwoyb",
+                        "name": "#EOMalbum",
+                        "id": 105137891,
+                        "id_str": "105137891",
+                        "indices": [
+                            55,
+                            66
+                        ]
+                    },
+                    {
+                        "screen_name": "patorankingfire",
+                        "name": "PATORANKING",
+                        "id": 66000793,
+                        "id_str": "66000793",
+                        "indices": [
+                            67,
+                            83
+                        ]
+                    }
+                ],
+                "urls": [
+                    {
+                        "url": "https://t.co/hgOS2nnoo0",
+                        "expanded_url": "https://twitter.com/i/web/status/983767185733636097",
+                        "display_url": "twitter.com/i/web/status/9\u2026",
+                        "indices": [
+                            117,
+                            140
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "iso_language_code": "en",
+                "result_type": "recent"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": 137117594,
+            "in_reply_to_user_id_str": "137117594",
+            "in_reply_to_screen_name": "ChiChingChingJA",
+            "user": {
+                "id": 324137794,
+                "id_str": "324137794",
+                "name": "Ask Timaya Ozet W\u00e1n \ud83d\udd25BHIMSon",
+                "screen_name": "AndyOzet",
+                "location": "GH",
+                "description": "What do you want to know about me But first you have to know that am a #BHIMSON \u270a\ufe0f",
+                "url": "https://t.co/dBHlIBhfHo",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/dBHlIBhfHo",
+                                "expanded_url": "http://facebook.com",
+                                "display_url": "facebook.com",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 1257,
+                "friends_count": 2484,
+                "listed_count": 6,
+                "created_at": "Sun Jun 26 02:24:27 +0000 2011",
+                "favourites_count": 12387,
+                "utc_offset": -14400,
+                "time_zone": "Eastern Time (US & Canada)",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 7890,
+                "lang": "en",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "709397",
+                "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/578764339/gbked9lig2j0zybqr6iw.jpeg",
+                "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/578764339/gbked9lig2j0zybqr6iw.jpeg",
+                "profile_background_tile": false,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/939287399254904832/wKXqRxvt_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/939287399254904832/wKXqRxvt_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/324137794/1520178200",
+                "profile_link_color": "7A88BF",
+                "profile_sidebar_border_color": "86A4A6",
+                "profile_sidebar_fill_color": "A0C5C7",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": {
+                "id": "003e299707d0375b",
+                "url": "https://api.twitter.com/1.1/geo/id/003e299707d0375b.json",
+                "place_type": "city",
+                "name": "Accra",
+                "full_name": "Accra, Ghana",
+                "country_code": "GH",
+                "country": "Ghana",
+                "contained_within": [],
+                "bounding_box": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                -0.3470252,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.7292666
+                            ],
+                            [
+                                -0.3470252,
+                                5.7292666
+                            ]
+                        ]
+                    ]
+                },
+                "attributes": {}
+            },
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 0,
+            "favorite_count": 0,
+            "favorited": false,
+            "retweeted": false,
+            "lang": "en"
+        },
+        {
+            "created_at": "Tue Apr 10 17:51:42 +0000 2018",
+            "id": 983764474929860608,
+            "id_str": "983764474929860608",
+            "text": "@eddie_khae @kafuiii this the dance you were talking about?",
+            "truncated": false,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                    {
+                        "screen_name": "eddie_khae",
+                        "name": "EddieKhae",
+                        "id": 4125330736,
+                        "id_str": "4125330736",
+                        "indices": [
+                            0,
+                            11
+                        ]
+                    },
+                    {
+                        "screen_name": "kafuiii",
+                        "name": "Kafui",
+                        "id": 28364829,
+                        "id_str": "28364829",
+                        "indices": [
+                            12,
+                            20
+                        ]
+                    }
+                ],
+                "urls": []
+            },
+            "metadata": {
+                "iso_language_code": "en",
+                "result_type": "recent"
+            },
+            "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+            "in_reply_to_status_id": 983361288880492544,
+            "in_reply_to_status_id_str": "983361288880492544",
+            "in_reply_to_user_id": 4125330736,
+            "in_reply_to_user_id_str": "4125330736",
+            "in_reply_to_screen_name": "eddie_khae",
+            "user": {
+                "id": 819160254,
+                "id_str": "819160254",
+                "name": "Chef Homeboyardy",
+                "screen_name": "samobaafs",
+                "location": "Accra, Ghana",
+                "description": "nothing deep to say",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 228,
+                "friends_count": 200,
+                "listed_count": 0,
+                "created_at": "Wed Sep 12 08:57:03 +0000 2012",
+                "favourites_count": 2627,
+                "utc_offset": 3600,
+                "time_zone": "Casablanca",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 4056,
+                "lang": "en",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "131516",
+                "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+                "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/981537996150276096/HKRMOHxp_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/981537996150276096/HKRMOHxp_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/819160254/1522851869",
+                "profile_link_color": "474747",
+                "profile_sidebar_border_color": "FFFFFF",
+                "profile_sidebar_fill_color": "EFEFEF",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": {
+                "id": "003e299707d0375b",
+                "url": "https://api.twitter.com/1.1/geo/id/003e299707d0375b.json",
+                "place_type": "city",
+                "name": "Accra",
+                "full_name": "Accra, Ghana",
+                "country_code": "GH",
+                "country": "Ghana",
+                "contained_within": [],
+                "bounding_box": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                -0.3470252,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.7292666
+                            ],
+                            [
+                                -0.3470252,
+                                5.7292666
+                            ]
+                        ]
+                    ]
+                },
+                "attributes": {}
+            },
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 0,
+            "favorite_count": 0,
+            "favorited": false,
+            "retweeted": false,
+            "lang": "en"
+        },
+        {
+            "created_at": "Tue Apr 10 14:43:00 +0000 2018",
+            "id": 983716985501560832,
+            "id_str": "983716985501560832",
+            "text": "@Joy997FM @lexisbill @Joselyn_Dumas Nice dance moves \ud83d\ude0d\ud83d\ude0d",
+            "truncated": false,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [
+                    {
+                        "screen_name": "Joy997FM",
+                        "name": "Joy 99.7 FM",
+                        "id": 91966685,
+                        "id_str": "91966685",
+                        "indices": [
+                            0,
+                            9
+                        ]
+                    },
+                    {
+                        "screen_name": "lexisbill",
+                        "name": "Lexis Bill",
+                        "id": 40100034,
+                        "id_str": "40100034",
+                        "indices": [
+                            10,
+                            20
+                        ]
+                    },
+                    {
+                        "screen_name": "Joselyn_Dumas",
+                        "name": "JOSELYN DUMAS\u00ae",
+                        "id": 195516975,
+                        "id_str": "195516975",
+                        "indices": [
+                            21,
+                            35
+                        ]
+                    }
+                ],
+                "urls": []
+            },
+            "metadata": {
+                "iso_language_code": "en",
+                "result_type": "recent"
+            },
+            "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+            "in_reply_to_status_id": 983716814143262720,
+            "in_reply_to_status_id_str": "983716814143262720",
+            "in_reply_to_user_id": 91966685,
+            "in_reply_to_user_id_str": "91966685",
+            "in_reply_to_screen_name": "Joy997FM",
+            "user": {
+                "id": 497021784,
+                "id_str": "497021784",
+                "name": "Daniel Kwame Agyei",
+                "screen_name": "kwame_agyei",
+                "location": "Ghana Accra Dc",
+                "description": "#African #History #Class   Manchester United fan whatsapp +233265516592 ff me on Instagram   snap chat = kwame_agyei Brand new spare parts dealer\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25",
+                "url": null,
+                "entities": {
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 2568,
+                "friends_count": 2108,
+                "listed_count": 343,
+                "created_at": "Sun Feb 19 14:45:05 +0000 2012",
+                "favourites_count": 899,
+                "utc_offset": -25200,
+                "time_zone": "Arizona",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 219920,
+                "lang": "en",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "C0DEED",
+                "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/965307598969933826/1N8cGh72_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/965307598969933826/1N8cGh72_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/497021784/1404909001",
+                "profile_link_color": "1DA1F2",
+                "profile_sidebar_border_color": "C0DEED",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": false,
+                "default_profile": true,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": {
+                "id": "003e299707d0375b",
+                "url": "https://api.twitter.com/1.1/geo/id/003e299707d0375b.json",
+                "place_type": "city",
+                "name": "Accra",
+                "full_name": "Accra, Ghana",
+                "country_code": "GH",
+                "country": "Ghana",
+                "contained_within": [],
+                "bounding_box": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                -0.3470252,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.7292666
+                            ],
+                            [
+                                -0.3470252,
+                                5.7292666
+                            ]
+                        ]
+                    ]
+                },
+                "attributes": {}
+            },
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 3,
+            "favorite_count": 10,
+            "favorited": false,
+            "retweeted": false,
+            "lang": "en"
+        },
+        {
+            "created_at": "Tue Apr 10 11:16:56 +0000 2018",
+            "id": 983665125025550336,
+            "id_str": "983665125025550336",
+            "text": "#NowPlayingOnYfm @Y1079FM @Y979FM \n\n\ud83d\udcfb\"Do The Dance\" \u27a1\ufe0f @eddie_khae \n\n#MMRS w/ @iambrownberry X @DJGANJ X @Ellakuns",
+            "truncated": false,
+            "entities": {
+                "hashtags": [
+                    {
+                        "text": "NowPlayingOnYfm",
+                        "indices": [
+                            0,
+                            16
+                        ]
+                    },
+                    {
+                        "text": "MMRS",
+                        "indices": [
+                            69,
+                            74
+                        ]
+                    }
+                ],
+                "symbols": [],
+                "user_mentions": [
+                    {
+                        "screen_name": "Y1079FM",
+                        "name": "Y 107.9 FM",
+                        "id": 176926673,
+                        "id_str": "176926673",
+                        "indices": [
+                            17,
+                            25
+                        ]
+                    },
+                    {
+                        "screen_name": "Y979FM",
+                        "name": "Y979FM Takoradi",
+                        "id": 337762048,
+                        "id_str": "337762048",
+                        "indices": [
+                            26,
+                            33
+                        ]
+                    },
+                    {
+                        "screen_name": "eddie_khae",
+                        "name": "EddieKhae",
+                        "id": 4125330736,
+                        "id_str": "4125330736",
+                        "indices": [
+                            55,
+                            66
+                        ]
+                    },
+                    {
+                        "screen_name": "iambrownberry",
+                        "name": "Brown Berry \ud83c\udf2a",
+                        "id": 120538089,
+                        "id_str": "120538089",
+                        "indices": [
+                            78,
+                            92
+                        ]
+                    },
+                    {
+                        "screen_name": "DJGANJ",
+                        "name": "#idontworry",
+                        "id": 1080098185,
+                        "id_str": "1080098185",
+                        "indices": [
+                            95,
+                            102
+                        ]
+                    },
+                    {
+                        "screen_name": "Ellakuns",
+                        "name": "Ella Okunmwendia",
+                        "id": 4329857241,
+                        "id_str": "4329857241",
+                        "indices": [
+                            105,
+                            114
+                        ]
+                    }
+                ],
+                "urls": []
+            },
+            "metadata": {
+                "iso_language_code": "en",
+                "result_type": "recent"
+            },
+            "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 734321325347614720,
+                "id_str": "734321325347614720",
+                "name": "#NowPlayingOnYfm",
+                "screen_name": "NowPlayingOnYFM",
+                "location": "Ghana",
+                "description": "Now Playing on @y1079fm!",
+                "url": "https://t.co/OXx6BZPiXl",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/OXx6BZPiXl",
+                                "expanded_url": "http://yfmghana.com",
+                                "display_url": "yfmghana.com",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 3903,
+                "friends_count": 185,
+                "listed_count": 5,
+                "created_at": "Sun May 22 09:53:41 +0000 2016",
+                "favourites_count": 768,
+                "utc_offset": -25200,
+                "time_zone": "Pacific Time (US & Canada)",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 25129,
+                "lang": "en",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "000000",
+                "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_tile": false,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/738378834316296193/aOCW9u5-_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/738378834316296193/aOCW9u5-_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/734321325347614720/1464878206",
+                "profile_link_color": "19CF86",
+                "profile_sidebar_border_color": "000000",
+                "profile_sidebar_fill_color": "000000",
+                "profile_text_color": "000000",
+                "profile_use_background_image": false,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": {
+                "id": "c08f5915ceeeb806",
+                "url": "https://api.twitter.com/1.1/geo/id/c08f5915ceeeb806.json",
+                "place_type": "country",
+                "name": "Ghana",
+                "full_name": "Ghana",
+                "country_code": "GH",
+                "country": "Ghana",
+                "contained_within": [],
+                "bounding_box": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                -3.2599659,
+                                4.677051
+                            ],
+                            [
+                                1.2360215,
+                                4.677051
+                            ],
+                            [
+                                1.2360215,
+                                11.1738377
+                            ],
+                            [
+                                -3.2599659,
+                                11.1738377
+                            ]
+                        ]
+                    ]
+                },
+                "attributes": {}
+            },
+            "contributors": null,
+            "is_quote_status": false,
+            "retweet_count": 0,
+            "favorite_count": 2,
+            "favorited": false,
+            "retweeted": false,
+            "lang": "en"
+        },
+        {
+            "created_at": "Tue Apr 10 09:34:18 +0000 2018",
+            "id": 983639296824442880,
+            "id_str": "983639296824442880",
+            "text": "She Dey dance roff https://t.co/bK2RnloOzm",
+            "truncated": false,
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "user_mentions": [],
+                "urls": [
+                    {
+                        "url": "https://t.co/bK2RnloOzm",
+                        "expanded_url": "https://twitter.com/comanda_x/status/983438036254912514",
+                        "display_url": "twitter.com/comanda_x/stat\u2026",
+                        "indices": [
+                            19,
+                            42
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "iso_language_code": "en",
+                "result_type": "recent"
+            },
+            "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "in_reply_to_screen_name": null,
+            "user": {
+                "id": 130804479,
+                "id_str": "130804479",
+                "name": "Mr Meister",
+                "screen_name": "mistameister",
+                "location": "Accra, Ghana",
+                "description": "Dreamer and Doer",
+                "url": "https://t.co/0vEY0Am7vf",
+                "entities": {
+                    "url": {
+                        "urls": [
+                            {
+                                "url": "https://t.co/0vEY0Am7vf",
+                                "expanded_url": "http://bernardsokpe.com",
+                                "display_url": "bernardsokpe.com",
+                                "indices": [
+                                    0,
+                                    23
+                                ]
+                            }
+                        ]
+                    },
+                    "description": {
+                        "urls": []
+                    }
+                },
+                "protected": false,
+                "followers_count": 12959,
+                "friends_count": 2883,
+                "listed_count": 66,
+                "created_at": "Thu Apr 08 10:58:55 +0000 2010",
+                "favourites_count": 3958,
+                "utc_offset": 3600,
+                "time_zone": "Casablanca",
+                "geo_enabled": true,
+                "verified": false,
+                "statuses_count": 113024,
+                "lang": "en",
+                "contributors_enabled": false,
+                "is_translator": false,
+                "is_translation_enabled": false,
+                "profile_background_color": "131516",
+                "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+                "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+                "profile_background_tile": true,
+                "profile_image_url": "http://pbs.twimg.com/profile_images/877793021970051072/Wu_8Qmvb_normal.jpg",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/877793021970051072/Wu_8Qmvb_normal.jpg",
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/130804479/1516746161",
+                "profile_link_color": "009999",
+                "profile_sidebar_border_color": "EEEEEE",
+                "profile_sidebar_fill_color": "EFEFEF",
+                "profile_text_color": "333333",
+                "profile_use_background_image": true,
+                "has_extended_profile": true,
+                "default_profile": false,
+                "default_profile_image": false,
+                "following": false,
+                "follow_request_sent": false,
+                "notifications": false,
+                "translator_type": "none"
+            },
+            "geo": null,
+            "coordinates": null,
+            "place": {
+                "id": "003e299707d0375b",
+                "url": "https://api.twitter.com/1.1/geo/id/003e299707d0375b.json",
+                "place_type": "city",
+                "name": "Accra",
+                "full_name": "Accra, Ghana",
+                "country_code": "GH",
+                "country": "Ghana",
+                "contained_within": [],
+                "bounding_box": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                -0.3470252,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.51713
+                            ],
+                            [
+                                -0.0215619,
+                                5.7292666
+                            ],
+                            [
+                                -0.3470252,
+                                5.7292666
+                            ]
+                        ]
+                    ]
+                },
+                "attributes": {}
+            },
+            "contributors": null,
+            "is_quote_status": true,
+            "quoted_status_id": 983438036254912514,
+            "quoted_status_id_str": "983438036254912514",
+            "quoted_status": {
+                "created_at": "Mon Apr 09 20:14:33 +0000 2018",
+                "id": 983438036254912514,
+                "id_str": "983438036254912514",
+                "text": "She\u2019s back at it again!!! Can\u2019t believe she\u2019s only 14 she\u2019s tooooo wavey \ud83d\ude2d\ud83d\udc83\ud83c\udffe\ud83d\udd25\ud83d\udd25\ud83d\ude4c\ud83c\udffe\ud83c\uddec\ud83c\udded\ud83c\uddec\ud83c\udded\ud83c\uddec\ud83c\udded\ud83c\udf0a\ud83c\udf0a https://t.co/u5xdheyfm4",
+                "truncated": false,
+                "entities": {
+                    "hashtags": [],
+                    "symbols": [],
+                    "user_mentions": [],
+                    "urls": [],
+                    "media": [
+                        {
+                            "id": 983437551368273920,
+                            "id_str": "983437551368273920",
+                            "indices": [
+                                89,
+                                112
+                            ],
+                            "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/983437551368273920/pu/img/b66h24HmtihJ1lZ2.jpg",
+                            "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/983437551368273920/pu/img/b66h24HmtihJ1lZ2.jpg",
+                            "url": "https://t.co/u5xdheyfm4",
+                            "display_url": "pic.twitter.com/u5xdheyfm4",
+                            "expanded_url": "https://twitter.com/Comanda_x/status/983438036254912514/video/1",
+                            "type": "photo",
+                            "sizes": {
+                                "medium": {
+                                    "w": 640,
+                                    "h": 640,
+                                    "resize": "fit"
+                                },
+                                "thumb": {
+                                    "w": 150,
+                                    "h": 150,
+                                    "resize": "crop"
+                                },
+                                "large": {
+                                    "w": 640,
+                                    "h": 640,
+                                    "resize": "fit"
+                                },
+                                "small": {
+                                    "w": 640,
+                                    "h": 640,
+                                    "resize": "fit"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "extended_entities": {
+                    "media": [
+                        {
+                            "id": 983437551368273920,
+                            "id_str": "983437551368273920",
+                            "indices": [
+                                89,
+                                112
+                            ],
+                            "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/983437551368273920/pu/img/b66h24HmtihJ1lZ2.jpg",
+                            "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/983437551368273920/pu/img/b66h24HmtihJ1lZ2.jpg",
+                            "url": "https://t.co/u5xdheyfm4",
+                            "display_url": "pic.twitter.com/u5xdheyfm4",
+                            "expanded_url": "https://twitter.com/Comanda_x/status/983438036254912514/video/1",
+                            "type": "video",
+                            "sizes": {
+                                "medium": {
+                                    "w": 640,
+                                    "h": 640,
+                                    "resize": "fit"
+                                },
+                                "thumb": {
+                                    "w": 150,
+                                    "h": 150,
+                                    "resize": "crop"
+                                },
+                                "large": {
+                                    "w": 640,
+                                    "h": 640,
+                                    "resize": "fit"
+                                },
+                                "small": {
+                                    "w": 640,
+                                    "h": 640,
+                                    "resize": "fit"
+                                }
+                            },
+                            "video_info": {
+                                "aspect_ratio": [
+                                    1,
+                                    1
+                                ],
+                                "duration_millis": 60567,
+                                "variants": [
+                                    {
+                                        "content_type": "application/x-mpegURL",
+                                        "url": "https://video.twimg.com/ext_tw_video/983437551368273920/pu/pl/YzIPfwVzB2hi0_Th.m3u8"
+                                    },
+                                    {
+                                        "bitrate": 832000,
+                                        "content_type": "video/mp4",
+                                        "url": "https://video.twimg.com/ext_tw_video/983437551368273920/pu/vid/480x480/0z4J0TyshcrUynn3.mp4"
+                                    },
+                                    {
+                                        "bitrate": 256000,
+                                        "content_type": "video/mp4",
+                                        "url": "https://video.twimg.com/ext_tw_video/983437551368273920/pu/vid/240x240/__6nWzQ7YVSryN1o.mp4"
+                                    }
+                                ]
+                            },
+                            "additional_media_info": {
+                                "monetizable": false
+                            }
+                        }
+                    ]
+                },
+                "metadata": {
+                    "iso_language_code": "en",
+                    "result_type": "recent"
+                },
+                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+                "in_reply_to_status_id": null,
+                "in_reply_to_status_id_str": null,
+                "in_reply_to_user_id": null,
+                "in_reply_to_user_id_str": null,
+                "in_reply_to_screen_name": null,
+                "user": {
+                    "id": 60074905,
+                    "id_str": "60074905",
+                    "name": "manda",
+                    "screen_name": "Comanda_x",
+                    "location": "HiBye HQ",
+                    "description": "all things Ghanaian, all views are mine alone.",
+                    "url": null,
+                    "entities": {
+                        "description": {
+                            "urls": []
+                        }
+                    },
+                    "protected": false,
+                    "followers_count": 3895,
+                    "friends_count": 994,
+                    "listed_count": 99,
+                    "created_at": "Sat Jul 25 15:03:23 +0000 2009",
+                    "favourites_count": 3557,
+                    "utc_offset": 3600,
+                    "time_zone": "London",
+                    "geo_enabled": true,
+                    "verified": false,
+                    "statuses_count": 175244,
+                    "lang": "en",
+                    "contributors_enabled": false,
+                    "is_translator": false,
+                    "is_translation_enabled": false,
+                    "profile_background_color": "FF6699",
+                    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/687700699489153024/cPnuX5KF.png",
+                    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/687700699489153024/cPnuX5KF.png",
+                    "profile_background_tile": true,
+                    "profile_image_url": "http://pbs.twimg.com/profile_images/982194316234797056/Z2yixoNg_normal.jpg",
+                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/982194316234797056/Z2yixoNg_normal.jpg",
+                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/60074905/1506873159",
+                    "profile_link_color": "F5ABB5",
+                    "profile_sidebar_border_color": "FFFFFF",
+                    "profile_sidebar_fill_color": "DBDBDB",
+                    "profile_text_color": "9E6309",
+                    "profile_use_background_image": false,
+                    "has_extended_profile": true,
+                    "default_profile": false,
+                    "default_profile_image": false,
+                    "following": false,
+                    "follow_request_sent": false,
+                    "notifications": false,
+                    "translator_type": "none"
+                },
+                "geo": null,
+                "coordinates": null,
+                "place": null,
+                "contributors": null,
+                "is_quote_status": false,
+                "retweet_count": 559,
+                "favorite_count": 1021,
+                "favorited": false,
+                "retweeted": false,
+                "possibly_sensitive": false,
+                "lang": "en"
+            },
+            "retweet_count": 3,
+            "favorite_count": 14,
+            "favorited": false,
+            "retweeted": false,
+            "possibly_sensitive": false,
+            "lang": "en"
+        }
+    ]
+}

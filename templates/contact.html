@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Angela's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100" rel="stylesheet">
+
+</head>
+
+
+<body class="body body-home">
+  <a href="#maincontent" class="skip">Skip navigation</a>
+  <header>
+    <nav id = "top-nav" class="top-nav">
+      <div class="logo">
+        <a href="index.html" class="logo-text">#DANCEMAP</a>
+          </div>
+            <ul class="no-back">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="submit.html">Your Story</a></li>
+                <li><a class="current-page" href="contact.html">Contact</a></li>
+            </ul>
+    </nav>
+  </header>
+
+  
+  <main>
+    <div class='contactform' id="maincontent">
+      {% block content %}
+      <form class='form' action="{{ url_for('contact') }}" method=POST>  
+
+            {{ form.hidden_tag() }}
+ 
+            {{ form.name.label }}
+            {{ form.name }}
+         
+            {{ form.email.label }}
+            {{ form.email }}
+            <p>Required input format is "xxx@xxxx.xxx". This email will be used to send you a receipt of your media submission.</p>
+         
+            {{ form.subject.label }}
+            {{ form.subject }}
+         
+            {{ form.message.label }}
+            {{ form.message }}
+         
+            {{ form.submit }}
+
+<!--         <fieldset class='contactform'>
+          <label>Name: <br>
+          <input type="text" name="name" class="contact"></label>
+
+          <label class="contact">Email: <br>
+          <input type="email" name="email" class="contact" placeholder = "myname@domain.com" required></label>
+          
+          <p class="pcontact">Required input format is "xxx@xxxx.xxx". This email will be used to send you a receipt of your media submission.</p>
+
+          <label class="contact">Subject: <br>
+          <input type="text" name="subject" class="contact"></label>
+
+          <label class="contact">Message: <br>
+          <textarea name="message" class="contact"></textarea></label>
+
+        </fieldset>
+        <input type="submit" value = "Send"> -->
+      </form>
+    {% endblock %}
+    </div>
+  </main>
+
+
+
+  <footer class="footer">
+    <p class='no-backp'>This site was created by Angela Schöpke &copy; 2018</p>
+  </footer>
+
+<!--   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+</body>
+</html>
+
