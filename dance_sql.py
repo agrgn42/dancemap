@@ -1,4 +1,5 @@
 import csv
+import json
 from sqlite3 import Error
 import sqlite3 as sqlite
 
@@ -8,6 +9,12 @@ import os
 
 
 DB_NAME = 'dance.db'
+COUNTRIESJSON = 'countries.json'
+
+countries_file = open('countries.json', 'r')
+countries_contents = countries_file.read()
+countries_dict = json.loads(countries_contents)
+countries_file.close()
   
 
 def create_dance_db():
@@ -31,7 +38,14 @@ def create_dance_db():
         DROP TABLE IF EXISTS 'YouTube';
     '''
     cur.execute(statement)
+
+
+    statement = '''
+        DROP TABLE IF EXISTS 'Countries';
+    '''
+    cur.execute(statement)
     conn.commit()
+
 
     # creating tables
     statement = '''
@@ -42,7 +56,8 @@ def create_dance_db():
         Country TEXT,
         Latitude REAL,
         Longitude REAL,
-        Url TEXT
+        Url TEXT,
+        CountryId INTEGER
     );
     '''
     cur.execute(statement)
@@ -56,7 +71,8 @@ def create_dance_db():
         Country TEXT,
         Latitude REAL,
         Longitude REAL,
-        Url TEXT
+        Url TEXT,
+        CountryId INTEGER
     );
     '''
     cur.execute(statement)
@@ -74,6 +90,22 @@ def create_dance_db():
     '''
     cur.execute(statement)
 
+
+    statement = '''
+    CREATE TABLE Countries (
+        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Alpha2 TEXT, --2 letter country code
+        Alpha3 TEXT, --3 letter country code
+        EnglishName TEXT, --English name for country
+        Region TEXT, --Broad region where country is located.
+        Subregion TEXT, --More specific subregion where country is located.
+        Population INTEGER, --Country’s population
+        Area REAL --Country’s area in km2
+    );
+    '''
+    cur.execute(statement)
+
+
     conn.commit()
     cur.close()
     conn.close()
@@ -87,7 +119,7 @@ def create_flickr_table():
 
     insert = '''
         INSERT INTO Flickr
-        VALUES (NULL,?,?,?,?,?,?)
+        VALUES (NULL,?,?,?,?,?,?,NULL)
         '''
     with open('flickr/flickr_results.csv', 'r') as infile:
         reader = csv.reader(infile)
@@ -107,7 +139,7 @@ def create_twitter_table():
 
     insert = '''
         INSERT INTO Twitter
-        VALUES (NULL,?,?,?,?,?,?)
+        VALUES (NULL,?,?,?,?,?,?,NULL)
         '''
     with open('twitter/twitter_results/twitter_results_master.csv', 'r', encoding='ISO-8859-1') as infile:
         reader = csv.reader(infile)
@@ -139,10 +171,60 @@ def create_youtube_table():
     conn.close()
 
 
+
+def create_countries_table():
+
+    conn = sqlite.connect(DB_NAME)
+    cur = conn.cursor() 
+
+    insert = '''
+            INSERT INTO Countries
+            VALUES (NULL,?,?,?,?,?,?,?)
+            '''
+
+    for country in countries_dict:
+        params = (country['alpha2Code'],
+            country['alpha3Code'],
+            country['name'],
+            country['region'],
+            country['subregion'],
+            country['population'],
+            country['area'])
+        cur.execute(insert, params)
+
+
+    update = '''
+        UPDATE Flickr
+        SET CountryId = (
+        SELECT Countries.Id
+        FROM Countries
+        WHERE Flickr.Country=Countries.EnglishName OR Countries.EnglishName LIKE '%' || Flickr.Country || '%');
+        '''
+    cur.execute(update)
+
+
+    update = '''
+        UPDATE Twitter
+        SET CountryId = (
+        SELECT Countries.Id
+        FROM Countries
+        WHERE Twitter.Country = Countries.EnglishName OR Countries.EnglishName LIKE '%' || Twitter.Country || '%');
+        '''
+    cur.execute(update)
+
+
+    conn.commit()
+    conn.close()
+
+
+
+
 if __name__ == "__main__":
     create_dance_db()
     create_flickr_table()
     create_twitter_table()
     create_youtube_table()
+    create_countries_table()
+
     
 

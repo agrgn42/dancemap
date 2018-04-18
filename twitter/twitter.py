@@ -3,15 +3,19 @@ from requests_oauthlib import OAuth1Session
 import json
 import sys
 import requests
-import secrets # file that contains OAuth credentials
 import nltk
 from nltk.corpus import stopwords
 import csv
 
-consumer_key = secrets.CONSUMER_KEY
-consumer_secret = secrets.CONSUMER_SECRET
-access_token = secrets.ACCESS_KEY
-access_secret = secrets.ACCESS_SECRET
+import sys
+sys.path.append("../")
+
+from secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
+
+consumer_key = CONSUMER_KEY
+consumer_secret = CONSUMER_SECRET
+access_token = ACCESS_KEY
+access_secret = ACCESS_SECRET
 
 #Code for OAuth starts
 oauth = OAuth1Session(consumer_key, consumer_secret, access_token, access_secret)
@@ -27,6 +31,9 @@ try:
 	cache_file.close()
 except:
     CACHE_DICTION = {}
+
+
+###########################################
 
 
 # generate unique identifier for each api request
@@ -62,50 +69,11 @@ def get_from_twitter(count=25):
     except TypeError:
         raise TypeError("No Twitter handle provided.")
 
-# Bejing, China - None
-# Tehran, Iran - Some
-# 0,0 -Some
-# Guatemala City - Some
-# tokyo -
-# jakarta
-# buenos aires
-# mexico city
-# baku, azerbaijan
-# trinidad, 
-# berlin
-# paris
-# india
-# moscow
-# senegal
-# turkey
-# vietnam
-# uzbekistan 
-# caracas, venezuela
-# south africa
-# paraguay
-# uruguay - lots
-# canada - lots
-
-geo_tagged = {'statuses': []}
-
-# while len(geo_tagged) < 10: 
-# print(twitter_data['statuses'][0]['geo'])
-# print(twitter_data['statuses'][0]['user'].keys())
-twitter_data = get_from_twitter(100)
-for each in twitter_data['statuses']:
-    if each['geo'] != None:
-        geo_tagged['statuses'].append(each)
-    elif each['place'] != None:
-        geo_tagged['statuses'].append(each)
-    elif each['coordinates'] != None:
-        geo_tagged['statuses'].append(each)
-
-print(len(geo_tagged['statuses']))
-
 
 
 class Tweet(object):
     def __init__(self, tweet_dict):
+        self.id_str = tweet_dict['id_str']
         self.tweet_text = tweet_dict['text']
         self.date_created = tweet_dict['created_at']
         self.country = tweet_dict['place']['country']
@@ -119,21 +87,42 @@ class Tweet(object):
 
 
 
-# instantiate class Tweet objects
-tweets = []
-for tweet in geo_tagged['statuses']:
-    tweets.append(Tweet(tweet))
-    # print(Tweet(tweet).url)
+def get_geotagged():
+
+    geo_tagged = {'statuses': []}
+
+    twitter_data = get_from_twitter(100)
+    for each in twitter_data['statuses']:
+        if each['geo'] != None:
+            geo_tagged['statuses'].append(each)
+        elif each['place'] != None:
+            geo_tagged['statuses'].append(each)
+        elif each['coordinates'] != None:
+            geo_tagged['statuses'].append(each)
+
+    print(len(geo_tagged['statuses']))
+
+    return geo_tagged
 
 
+def make_tweet_inst(geo_tagged):
 
-# create csv file
-twitter_csv = open("twitter_results.csv", 'w', newline='')
-twitter_writer = csv.writer(twitter_csv)
-twitter_writer.writerow(['tweet_text','date_created', 'country', 'latitude', 'longitude', 'url'])
-for tweet in tweets:
-    twitter_writer.writerow([tweet.tweet_text, tweet.date_created, tweet.country, tweet.latitude, tweet.longitude, tweet.url])
-twitter_csv.close()
+    # instantiate class Tweet objects
+    tweets = []
+    for tweet in geo_tagged['statuses']:
+        tweets.append(Tweet(tweet))
+
+    return tweets
+
+
+def make_csv(tweets):
+    # create csv file
+    twitter_csv = open("twitter_results.csv", 'w', newline='')
+    twitter_writer = csv.writer(twitter_csv)
+    twitter_writer.writerow(['tweet_text','date_created', 'country', 'latitude', 'longitude', 'url'])
+    for tweet in tweets:
+        twitter_writer.writerow([tweet.tweet_text, tweet.date_created, tweet.country, tweet.latitude, tweet.longitude, 'https://www.twitter.com/anyuser/status' + tweet.id_str])
+    twitter_csv.close()
 
 
 
@@ -144,3 +133,10 @@ if __name__ == "__main__":
     if not access_token or not access_secret:
         print("You need to fill in this API's specific OAuth URLs in this file.")
         exit()
+
+
+    geo_tagged = get_geotagged()
+    tweets = make_tweet_inst(geo_tagged)
+    make_csv(tweets)
+
+

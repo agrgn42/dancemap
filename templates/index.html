@@ -37,29 +37,84 @@
       mapboxgl.accessToken = '{{ACCESS_KEY}}'
       var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/argrgn/cjfiw80x846p52rrv28nxd11f'
+        style: 'mapbox://styles/argrgn/cjg57m816k6vo2sqp9c284zkq'
       });
 
-      var geoJson = "https://agrgn42.github.io/dancemap/flickr.geojson"
+      var flickrJson = "https://agrgn42.github.io/dancemap/flickr.geojson"
 
-      console.log(geoJson)
+      console.log(flickrJson)
 
       map.on('load', function () {
       map.addSource("flickr", {
           "type": "geojson",
-          "data": geoJson
+          "data": flickrJson
           });
 
       map.addLayer({
           "id": "flickr",
-          "type": "circle",
-          "source": "flickr"
-          // "layout": {
-          //     "icon-image": "{marker-symbol}-11",
-          //     "icon-allow-overlap": true
-          //   }
+          "type": "symbol",
+          "source": "flickr",
+          "layout": {
+              "icon-image": "marker-11",
+              "icon-allow-overlap": true
+            }
           });
       });
+
+      var twitterJson = "https://agrgn42.github.io/dancemap/twitter.geojson"
+
+      console.log(twitterJson)
+
+      map.on('load', function () {
+      map.addSource("twitter", {
+          "type": "geojson",
+          "data": twitterJson
+          });
+
+      map.addLayer({
+          "id": "twitter",
+          "type": "symbol",
+          "source": "twitter",
+          "layout": {
+              "icon-image": "marker-11-b",
+              "icon-allow-overlap": true
+            }
+          });
+      });
+
+      var youtubeJson = "https://agrgn42.github.io/dancemap/youtube.geojson"
+
+      console.log(youtubeJson)
+
+      map.on('load', function () {
+      map.addSource("youtube", {
+          "type": "geojson",
+          "data": youtubeJson
+          });
+
+      map.addLayer({
+          "id": "youtube",
+          "type": "symbol",
+          "source": "youtube",
+          "layout": {
+              "icon-image": "marker-11-o",
+              "icon-allow-overlap": true
+            }
+          });
+      });
+
+
+      // flickrJson.features.forEach(function(marker) {
+
+      //     // create a HTML element for each feature
+      //     var el = document.createElement('div');
+      //     el.className = 'marker';
+
+      //     // make a marker for each feature and add to the map
+      //     new mapboxgl.Marker(el)
+      //     .setLngLat(marker.geometry.coordinates)
+      //     .addTo(map);
+      //  });
 
 
       map.on('click', function(e) {
@@ -77,6 +132,39 @@
         .addTo(map);
         $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
       });
+
+      map.on('click', function(e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['twitter']
+      });
+      if (!features.length) {
+        return;
+      }
+      var feature = features[0];
+      var popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h3>' + feature.properties.TweetText + '</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map);
+        $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
+      });
+
+      map.on('click', function(e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['youtube']
+      });
+      if (!features.length) {
+        return;
+      }
+      var feature = features[0];
+      var popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h3>' + feature.properties.Title + '</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map);
+        $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
+      });
+
 
 
     </script>

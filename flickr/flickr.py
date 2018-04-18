@@ -7,7 +7,7 @@ from geotext import GeoText
 import time
 
 import sys
-sys.path.insert(0,"../")
+sys.path.append("../")
 
 from secrets import FLICKR_KEY
 

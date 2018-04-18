@@ -1,10 +1,13 @@
-from secrets import YOUTUBE_KEY
 import json
 import csv
 
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+
+import sys 
+sys.path.append('..')
+
 from secrets import YOUTUBE_KEY
 
 
@@ -22,6 +25,7 @@ try:
 except:
 	CACHE_DICTION = {}
 
+####################################################
 
 # generate unique identifier for each api request
 def params_unique_combination(baseurl, params_d):
@@ -129,6 +133,30 @@ class Video(object):
         self.thumbnail = video_dict['snippet']['thumbnails']['default']['url']
 
 
+def make_video_inst(responses):
+	
+	videos = []
+
+	# instantiate class Video objects
+	for video in responses['items']:
+		print(video)
+		videos.append(Video(video))
+
+	return videos
+		
+
+def make_csv(videos):
+
+	# create csv file
+	youtube_csv = open("youtube_results.csv", 'w', newline='')
+	youtube_writer = csv.writer(youtube_csv)
+	youtube_writer.writerow(['title','date_created', 'place_name', 'latitude', 'longitude', 'url'])
+	for video in videos:
+	    youtube_writer.writerow([video.title, video.date_created, video.place_name, video.latitude, video.longitude, video.url])
+	youtube_csv.close()
+
+
+
 
 if __name__ == '__main__':
 	search_response = youtube_search('dance', '35.6892,51.3890', '1000km', '50')
@@ -140,22 +168,11 @@ if __name__ == '__main__':
 	video_ids = ','.join(search_videos)
 	responses = video_location(video_ids)
 
+	videos = make_video_inst(responses)
+	make_csv(videos)
 
-	videos = []
 
-	# instantiate class Video objects
-	for video in responses['items']:
-		print(video)
-		videos.append(Video(video))
-		
 
-	# create csv file
-	youtube_csv = open("youtube_results.csv", 'w', newline='')
-	youtube_writer = csv.writer(youtube_csv)
-	youtube_writer.writerow(['title','date_created', 'place_name', 'latitude', 'longitude', 'url'])
-	for video in videos:
-	    youtube_writer.writerow([video.title, video.date_created, video.place_name, video.latitude, video.longitude, video.url])
-	youtube_csv.close()
 
 
 

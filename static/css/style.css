@@ -231,6 +231,15 @@ text {
 	pointer-events: none;
 }
 
+.marker {
+  background-image: url('../images/marker-11.svg');
+  background-size: cover;
+  border: solid 1px white;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
 
 /*-----SUBMIT PAGE ------*/
 

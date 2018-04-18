@@ -11,7 +11,7 @@
 $conn = new PDO('sqlite:dance.db');
 // mysql:host=127.0.0.1;dbname=dance', 'root', 'aragog743'
 # Build SQL SELECT statement including x and y columns
-$sql = 'SELECT *, Longitude AS x, Latitude AS y FROM Twitter';
+$sql = 'SELECT *, Latitude AS x, Longitude AS y FROM Twitter';
 
 if (isset($_GET['bbox']) || isset($_POST['bbox'])) {
     $bbox = explode(',', $_GET['bbox']);
