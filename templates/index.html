@@ -40,20 +40,20 @@
         style: 'mapbox://styles/argrgn/cjfiw80x846p52rrv28nxd11f'
       });
 
-      var geoJson = "https://agrgn42.github.io/dance.geojson"
+      var geoJson = "https://agrgn42.github.io/dancemap/flickr.geojson"
 
       console.log(geoJson)
 
       map.on('load', function () {
-      map.addSource("dances", {
+      map.addSource("flickr", {
           "type": "geojson",
           "data": geoJson
           });
 
       map.addLayer({
-          "id": "dances",
+          "id": "flickr",
           "type": "circle",
-          "source": "dances"
+          "source": "flickr"
           // "layout": {
           //     "icon-image": "{marker-symbol}-11",
           //     "icon-allow-overlap": true
@@ -61,51 +61,10 @@
           });
       });
 
-      // FeatureCollection featureCollection = FeatureCollection.fromJson(geoJsonString);
-
-      // List<Feature> features = featureCollection.getFeatures();
-
-      // for (Feature f : features) {
-      // if (f.getGeometry() instanceof Point) {
-      //     Position coordinates = (Position) 
-      //     f.getGeometry().getCoordinates();
-      //     map.addMarker(
-      //         new MarkerViewOptions().position(new 
-      //          LatLng(coordinates.getLatitude(),
-      //          coordinates.getLongitude()))
-      //          );
-      //     }
-      // }
-
-      // map.on('mouseenter', 'dances', function(e) {
-      // // Change the cursor style as a UI indicator.
-      // map.getCanvas().style.cursor = 'pointer';
-
-      // var coordinates = e.features[0].geometry.coordinates.slice();
-      // var description = e.features[0].properties.description;
-
-      // // Ensure that if the map is zoomed out such that multiple
-      // // copies of the feature are visible, the popup appears
-      // // over the copy being pointed to.
-      // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      // }
-
-      // // Populate the popup and set its coordinates
-      // // based on the feature found.
-      // popup.setLngLat(coordinates)
-      //     .setHTML(description)
-      //     .addTo(map);
-      // });
-
-      // map.on('mouseleave', 'dances', function() {
-      //     map.getCanvas().style.cursor = '';
-      //     popup.remove();
-      // });
 
       map.on('click', function(e) {
       var features = map.queryRenderedFeatures(e.point, {
-        layers: ['dances']
+        layers: ['flickr']
       });
       if (!features.length) {
         return;
@@ -120,26 +79,6 @@
       });
 
 
-
-      // map.markerLayer.on('click', function(e) {
-      // var features = map.queryRenderedFeatures(e.point, {
-      //   layers: map.markerLayer.setGeoJSON(geoJson)
-      // });
-
-      // if (!features.length) {
-      //   return;
-      // }
-
-      // var feature = features[0];
-
-      // var popup = new mapboxgl.Popup({ offset: [0, -15] })
-      //   .setLngLat(feature.geometry.coordinates)
-      //   .setHTML('<h3>' + feature.properties.photo_title + '</h3><h3><a class="maplink" href=' + feature.properties.photo_url + '>' +feature.properties.photo_url + '</a></h3>')
-      //   .setLngLat(feature.geometry.coordinates)
-      //   .addTo(map);
-      //   $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
-
-      // });
     </script>
 
   <div class="cover"></div>
