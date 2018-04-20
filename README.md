@@ -39,18 +39,18 @@ MAPBOX_ACCESS_KEY = 'your_mapbox_key'
 
 # Running the Program
 
-Set Up Virtual Environment:
+VIRTUAL ENVIRONMENT SETUP:
 
 From terminal (Mac OS), navigate to the 'dancemap' directory. To create a virtual environment, run the command...
 
-  virtualenv daenv
+    virtualenv daenv
 
 To install required program dependencies, run the command...
 
-  pip install -r requirements.txt
+    pip install -r requirements.txt
 
 
-Data Updates:
+DATA UPDATES:
 
 Depending the desired data source to update from, run any of 'twitter.py', 'flickr.py', or 'youtube.py' as needed using the following input parameters.
 
@@ -87,18 +87,19 @@ Run this file to update Twitter data.
 In-file required input parameters:
   
   'get_from_twitter' function - 
-        coords = Given the low volume of geo-tagged Tweets, this function automatically calls multiple locations around the world until at least 100 geo-tagged results for the given query term.
+  
+        coords = Given the low volume of geo-tagged Tweets, this function automatically calls multiple locations around the                    world until at least 100 geo-tagged results for the given query term.
         query = 'keyword_you_want_to_search_for_videos_of'
           default = 'dance'
         count = maximum_number_of_results_returned
           default = 100
 
 
-Displaying Data in Map:
+DISPLAYING DATA IN MAP:
 
 From terminal (Mac OS) with your virtual environment activated in the 'dancemap' directory, run the command...
 
-  python app.py
+    python app.py
 
 This command will automatically build and update your database, run the php script necessary to render the datapoints in .geojson format necessary to populate the map, push these files to the master branch of the GitHub repository you have initialized your 'dancemap' directory with in order that the map's javascript can access the file's contents via necessary URL, and render the map.
 
@@ -109,7 +110,7 @@ To view the map, open your web browser and enter the following URL...
   http://localhost:5000
 
 
-Choosing Different Map Views:
+CHOOSING DIFFERENT MAP VIEWS:
 
 To select different map views, enter a location-based search term in the search bar included with the map. The search function will provide suggestions to autocomplete your location-based search term in order that your search is compliant with necessary geocoding retrieval processes. Press 'enter' on your keyboard to execute the search. You will see the map zoom in to view the specified area.
 
