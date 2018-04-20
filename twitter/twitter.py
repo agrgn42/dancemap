@@ -7,9 +7,6 @@ import nltk
 from nltk.corpus import stopwords
 import csv
 
-import sys
-sys.path.append("../")
-
 from secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
 consumer_key = CONSUMER_KEY
@@ -23,6 +20,7 @@ oauth = OAuth1Session(consumer_key, consumer_secret, access_token, access_secret
 
 
 CACHE_FNAME = 'twitter_cache.json'
+COORDS_FNAME = 'country-capitals.csv'
 
 try:
 	cache_file = open(CACHE_FNAME, 'r')
@@ -45,13 +43,13 @@ def params_unique_combination(baseurl, params_d):
 	return baseurl + "_".join(results_keys)
 
 
-def get_from_twitter(count=25):
+def get_from_twitter(coords, count=25):
     try:
         baseurl = "https://api.twitter.com/1.1/search/tweets.json"
         params_d = {}
         params_d["q"] = "dance"
         params_d["result_type"] = "recent"
-        params_d["geocode"] = '45.4166,-75.7,1000km'
+        params_d["geocode"] = coords
         params_d["count"] = count
         unique_identifier = params_unique_combination(baseurl, params_d)
         if unique_identifier in CACHE_DICTION:
@@ -87,20 +85,21 @@ class Tweet(object):
 
 
 
-def get_geotagged():
+def get_geotagged(CACHE_DICTION):
+
 
     geo_tagged = {'statuses': []}
+    
+    for k,v in CACHE_DICTION.items():
 
-    twitter_data = get_from_twitter(100)
-    for each in twitter_data['statuses']:
-        if each['geo'] != None:
-            geo_tagged['statuses'].append(each)
-        elif each['place'] != None:
-            geo_tagged['statuses'].append(each)
-        elif each['coordinates'] != None:
-            geo_tagged['statuses'].append(each)
+        for geoitem in v['statuses']:
 
-    print(len(geo_tagged['statuses']))
+            if geoitem['geo'] != None:
+                geo_tagged['statuses'].append(geoitem)
+            elif geoitem['place'] != None:
+                geo_tagged['statuses'].append(geoitem)
+            elif geoitem['coordinates'] != None:
+                geo_tagged['statuses'].append(geoitem)
 
     return geo_tagged
 
@@ -110,19 +109,12 @@ def make_tweet_inst(geo_tagged):
     # instantiate class Tweet objects
     tweets = []
     for tweet in geo_tagged['statuses']:
-        tweets.append(Tweet(tweet))
+        try:
+            tweets.append(Tweet(tweet))
+        except:
+            pass
 
     return tweets
-
-
-def make_csv(tweets):
-    # create csv file
-    twitter_csv = open("twitter_results.csv", 'w', newline='')
-    twitter_writer = csv.writer(twitter_csv)
-    twitter_writer.writerow(['tweet_text','date_created', 'country', 'latitude', 'longitude', 'url'])
-    for tweet in tweets:
-        twitter_writer.writerow([tweet.tweet_text, tweet.date_created, tweet.country, tweet.latitude, tweet.longitude, 'https://www.twitter.com/anyuser/status' + tweet.id_str])
-    twitter_csv.close()
 
 
 
@@ -135,8 +127,15 @@ if __name__ == "__main__":
         exit()
 
 
-    geo_tagged = get_geotagged()
-    tweets = make_tweet_inst(geo_tagged)
-    make_csv(tweets)
+    with open(COORDS_FNAME) as infile:
+        reader = csv.reader(infile) # comma is default delimiter
+        
+        while len(CACHE_DICTION.items()) < 100:
+            for row in reader:
+                if row[0] != 'CountryName':
+                    search_coords = str(row[2]) + ',' + str(row[3]) + ',1000km'
+        
+                    twitter_data = get_from_twitter(search_coords, 100)
+
 
 

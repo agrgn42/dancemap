@@ -6,9 +6,6 @@ import csv
 from geotext import GeoText
 import time
 
-import sys
-sys.path.append("../")
-
 from secrets import FLICKR_KEY
 
 
@@ -115,41 +112,37 @@ class Photo(object):
         return "{}\n{}\n{}\n{}\n".format(self.title, self.date_taken, self.url, self.photo_geo_info())
 
 
-def make_photo_inst():
-    global CACHE_DICTION
+def get_data(queryterm_1):
+
 
     photo_ids = []
-    flickr_dance_request = get_flickr_data(tag_search = "dance")
+    flickr_dance_request = get_flickr_data(tag_search = queryterm_1)
     for diction in flickr_dance_request["photos"]["photo"]:
         photo_ids.append(diction["id"])
-
 
     for each_id in photo_ids:
     	flickr_photos_request = get_flickr_photos_data(each_id)
 
+    return photo_ids
 
+    
+def make_photo_inst(CACHE_DICTION):
+    
     photo_instances = []
     for k,v in CACHE_DICTION.items():
-    	for each in photo_ids:
-    		if each in k:
-    			photo_instances.append(Photo(v))
+        try: 
+            photo_instances.append(Photo(v))
+        except:
+            pass
 
     return photo_instances
 
 
-def make_csv():
-
-    photo_csv = open("flickr_results.csv", 'w', newline='')
-    photo_writer = csv.writer(photo_csv)
-    photo_writer.writerow(['photo_title','date_taken', 'country', 'latitude', 'longitude', 'url'])
-    for photo in make_photo_inst():
-    	photo_writer.writerow([photo.title, photo.date_taken, photo.country, photo.latitude, photo.longitude, photo.url])
-    photo_csv.close()
-
 
 if __name__ == "__main__":
 
-    make_csv()
+    get_data("dance china")
+    make_photo_inst(CACHE_DICTION)
 
 
 

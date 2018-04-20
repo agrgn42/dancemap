@@ -1,15 +1,10 @@
 import json
 import csv
 
-
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-import sys 
-sys.path.append('..')
-
 from secrets import YOUTUBE_KEY
-
 
 
 YOUTUBE_API_SERVICE_NAME = 'youtube'
@@ -78,22 +73,22 @@ def youtube_search(q, location, location_radius, max_results):
 		return CACHE_DICTION[unique_identifier]
 
 
-def video_location(search_response):
+def video_location(video_ids):
 	youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
 	developerKey=YOUTUBE_KEY)
 
 	baseurl = "https://www.googleapis.com/youtube/v3"
 	params_d = {}
-	params_d['id']=video_ids
+	params_d['id']= video_ids
 	params_d['part']='snippet, recordingDetails'
 	unique_identifier = params_unique_combination(baseurl, params_d)
 	if unique_identifier in CACHE_DICTION:
-		print('Getting cached video data...')
+		# print('Getting cached video data...')
 		return CACHE_DICTION[unique_identifier]
 	else:
 		print('Making request for new video data...')
 		video_response = youtube.videos().list(
-			id=video_ids,
+			id= video_ids,
 			part='snippet, recordingDetails'
 		).execute()
 		CACHE_DICTION[unique_identifier] = video_response
@@ -104,79 +99,54 @@ def video_location(search_response):
 		return CACHE_DICTION[unique_identifier]
 
 
-def display_locations(video_response):
-
-	videos=[]
-
-	for video_result in video_response.get('items', []):
-		print(video_result)
-		videos.append('%s, (%s,%s)' % (video_result['snippet']['title'],
-			video_result['recordingDetails']['location']['latitude'],
-			video_result['recordingDetails']['location']['longitude']))
-
-	print('Videos:\n', '\n'.join(videos), '\n')
-
-	return videos
-
-
 class Video(object):
-    def __init__(self, video_dict):
-        self.title = video_dict['snippet']['title']
-        self.date_created = video_dict['snippet']['publishedAt']
-        try:
-        	self.place_name = video_dict['recordingDetails']['locationDescription']
-        except:
-        	self.place_name = ''
-        self.latitude = video_dict['recordingDetails']['location']['latitude']
-        self.longitude = video_dict['recordingDetails']['location']['longitude']
-        self.url = 'https://www.youtube.com/watch?v=' + video_dict['id']
-        self.thumbnail = video_dict['snippet']['thumbnails']['default']['url']
+	def __init__(self, video_dict):
+		self.title = video_dict['snippet']['title']
+		self.date_created = video_dict['snippet']['publishedAt']
+		try:
+			self.place_name = video_dict['recordingDetails']['locationDescription']
+		except:
+			self.place_name = ''
+		self.latitude = video_dict['recordingDetails']['location']['latitude']
+		self.longitude = video_dict['recordingDetails']['location']['longitude']
+		self.url = 'https://www.youtube.com/watch?v=' + video_dict['id']
+		self.thumbnail = video_dict['snippet']['thumbnails']['default']['url']
 
 
-def make_video_inst(responses):
-	
+
+def make_video_inst(CACHE_DICTION):
+
+	search_videos = []
+	for k,v in CACHE_DICTION.items():
+		for search_result in v['items']:
+			try:
+				search_videos.append(search_result['id']['videoId'])
+			except:
+				pass
+
+	# print(search_videos)
+
 	videos = []
 
-	# instantiate class Video objects
+	video_ids = ','.join(search_videos[:50])
+
+	responses = video_location(video_ids)
 	for video in responses['items']:
-		print(video)
+		videos.append(Video(video))
+	
+	video_ids = ','.join(search_videos[50:])
+	responses = video_location(video_ids)
+	for video in responses['items']:
 		videos.append(Video(video))
 
 	return videos
-		
-
-def make_csv(videos):
-
-	# create csv file
-	youtube_csv = open("youtube_results.csv", 'w', newline='')
-	youtube_writer = csv.writer(youtube_csv)
-	youtube_writer.writerow(['title','date_created', 'place_name', 'latitude', 'longitude', 'url'])
-	for video in videos:
-	    youtube_writer.writerow([video.title, video.date_created, video.place_name, video.latitude, video.longitude, video.url])
-	youtube_csv.close()
-
 
 
 
 if __name__ == '__main__':
-	search_response = youtube_search('dance', '35.6892,51.3890', '1000km', '50')
+	search_response = youtube_search('dance', '-29.3166,27.4833', '1000km', '50')
 	
-	search_videos = []
-	for search_result in search_response.get('items', []):
-		search_videos.append(search_result['id']['videoId'])
-
-	video_ids = ','.join(search_videos)
-	responses = video_location(video_ids)
-
-	videos = make_video_inst(responses)
-	make_csv(videos)
-
-
-
-
-
-
-
+	videos = make_video_inst(CACHE_DICTION)
 
 
 

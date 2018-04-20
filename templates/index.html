@@ -8,6 +8,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kanit:100" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -39,6 +41,8 @@
         container: 'map',
         style: 'mapbox://styles/argrgn/cjg57m816k6vo2sqp9c284zkq'
       });
+
+
 
       var flickrJson = "https://agrgn42.github.io/dancemap/flickr.geojson"
 
@@ -104,19 +108,6 @@
       });
 
 
-      // flickrJson.features.forEach(function(marker) {
-
-      //     // create a HTML element for each feature
-      //     var el = document.createElement('div');
-      //     el.className = 'marker';
-
-      //     // make a marker for each feature and add to the map
-      //     new mapboxgl.Marker(el)
-      //     .setLngLat(marker.geometry.coordinates)
-      //     .addTo(map);
-      //  });
-
-
       map.on('click', function(e) {
       var features = map.queryRenderedFeatures(e.point, {
         layers: ['flickr']
@@ -127,7 +118,7 @@
       var feature = features[0];
       var popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h3>' + feature.properties.Title + '</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
+        .setHTML('<h2>' + feature.properties.Title + '</h2><h3>' + feature.properties.Country +'</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
         .setLngLat(feature.geometry.coordinates)
         .addTo(map);
         $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
@@ -143,7 +134,7 @@
       var feature = features[0];
       var popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h3>' + feature.properties.TweetText + '</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
+        .setHTML('<h2>' + feature.properties.TweetText + '</h2><h3>' + feature.properties.Country +'</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
         .setLngLat(feature.geometry.coordinates)
         .addTo(map);
         $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
@@ -159,13 +150,17 @@
       var feature = features[0];
       var popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h3>' + feature.properties.Title + '</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
+        .setHTML('<h2>' + feature.properties.Title + '</h2><h3>' + feature.properties.Country +'</h3><h3><a class="maplink" href=' + feature.properties.Url + '>' +feature.properties.Url + '</a></h3>')
         .setLngLat(feature.geometry.coordinates)
         .addTo(map);
         $('h3').css({"font-family": "'Kanit', sans-serif", "font-size":"1.17em" });
       });
 
 
+      map.addControl(new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken
+
+      }));
 
     </script>
 

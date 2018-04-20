@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, flash, jsonify
-from forms import ContactForm
 from secrets import MAPBOX_ACCESS_KEY
 import json
 import os
@@ -20,31 +19,17 @@ app = Flask(__name__)
 app.secret_key = 'whiskii^honk#)ywooptonksh&'
 
 
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
-  form = ContactForm()
- 
-  if request.method == 'POST':
-    return 'Form posted.'
- 
-  elif request.method == 'GET':
-    return render_template('contact.html', form=form)
-
-
-
 @app.route("/", methods=['GET', 'POST'])
 def index():
 
-	dance_sql.create_dance_db()
-	dance_sql.create_flickr_table()
-	dance_sql.create_twitter_table()
-	dance_sql.create_youtube_table()
-	dance_sql.create_countries_table()
+	dance_sql.update_flickr_table()
+	dance_sql.update_twitter_table()
+	dance_sql.update_youtube_table()
+	dance_sql.update_countries_table()
 
 	os.system("php /Users/angelaschopke/Documents/SI507/final_proj/dancemap/flickr_mapbox.php")
 	os.system("php /Users/angelaschopke/Documents/SI507/final_proj/dancemap/twitter_mapbox.php")
 	os.system("php /Users/angelaschopke/Documents/SI507/final_proj/dancemap/youtube_mapbox.php")
-
 
 	try:
 		local_dir = '/Users/angelaschopke/Documents/SI507/final_proj/dancemap'
@@ -56,11 +41,11 @@ def index():
 		
 		repo.git.commit("-m 'new geo data'")
 
-		origin = repo.git.remote(name='origin')
-		origin.push()
+		repo.remotes.origin.push()
 
 	except:
 		pass
+
 
 
 	# DANCE_GEOJSON = jsonify(fstring)

@@ -225,6 +225,16 @@ footer p {
 	width: 100%;
 }
 
+.mapboxgl-ctrl-top-right {
+    margin: 10vh 4.5vh 0 0;
+    float: right;
+}
+
+.mapboxgl-ctrl {
+    margin: 10vh 4.5vh 0 0;
+    float: right;
+}
+
 text {
 	font-family: 'Kanit', sans-serif;
 	font-size: 10px;
@@ -239,6 +249,7 @@ text {
 
   cursor: pointer;
 }
+
 
 
 /*-----SUBMIT PAGE ------*/
