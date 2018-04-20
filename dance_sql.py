@@ -42,7 +42,6 @@ youtube_dict = json.loads(youtube_contents)
 youtube_file.close()
 
 
-  
 
 def create_dance_db():
 
@@ -189,7 +188,7 @@ def update_youtube_table():
         VALUES (NULL,?,?,?,?,?,?,?,NULL)
         '''
 
-
+    countries_list = []
     for video in youtube.youtube.make_video_inst(youtube_dict):
         result = {}
         url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng={}'
@@ -202,6 +201,7 @@ def update_youtube_table():
             for component in result['address_components']:
                 if 'country' in component['types']:
                     country = component['long_name']
+                    countries_list.append(country)
                 else:
                     country = None
         params = (video.title, video.date_created, video.place_name, video.latitude, video.longitude, video.url, country)
@@ -210,6 +210,7 @@ def update_youtube_table():
     conn.commit()
     conn.close()
 
+    return countries_list
 
 
 def update_countries_table():

@@ -31,7 +31,7 @@ def params_unique_combination(baseurl, params_d):
 	return baseurl + "_".join(results_keys)
 
 
-def youtube_search(q, location, location_radius, max_results):
+def youtube_search(query='dance', location='-29.3166,27.4833', location_radius='1000km', max_results=50,):
 	youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
 	developerKey=YOUTUBE_KEY)
 
@@ -40,7 +40,7 @@ def youtube_search(q, location, location_radius, max_results):
 
 	baseurl = "https://www.googleapis.com/youtube/v3"
 	params_d = {}
-	params_d['q']=q
+	params_d['q']=query
 	params_d['type']='video'
 	params_d['order']='date'
 	params_d['safeSearch']='moderate'
@@ -55,7 +55,7 @@ def youtube_search(q, location, location_radius, max_results):
 	else:
 		print('Making request for new YouTube data...')
 		youtube_response = youtube.search().list(
-			q=q,
+			query=query,
 			type='video',
 			order='date',
 			safeSearch='moderate',
@@ -124,8 +124,6 @@ def make_video_inst(CACHE_DICTION):
 			except:
 				pass
 
-	# print(search_videos)
-
 	videos = []
 
 	video_ids = ','.join(search_videos[:50])
@@ -144,8 +142,8 @@ def make_video_inst(CACHE_DICTION):
 
 
 if __name__ == '__main__':
-	search_response = youtube_search('dance', '-29.3166,27.4833', '1000km', '50')
 	
+	search_response = youtube_search()	
 	videos = make_video_inst(CACHE_DICTION)
 
 

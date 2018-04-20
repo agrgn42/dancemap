@@ -22,6 +22,7 @@ app.secret_key = 'whiskii^honk#)ywooptonksh&'
 @app.route("/", methods=['GET', 'POST'])
 def index():
 
+	dance_sql.create_dance_db()
 	dance_sql.update_flickr_table()
 	dance_sql.update_twitter_table()
 	dance_sql.update_youtube_table()
@@ -46,9 +47,6 @@ def index():
 	except:
 		pass
 
-
-
-	# DANCE_GEOJSON = jsonify(fstring)
 	return render_template("index.html", ACCESS_KEY=MAPBOX_ACCESS_KEY)
 
 
@@ -56,5 +54,6 @@ def index():
 
 
 if __name__=="__main__":
-    # model.init()
+
     app.run(debug=True)
+    

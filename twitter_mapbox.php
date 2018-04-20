@@ -9,8 +9,6 @@
 
 # Connect to MySQL database
 $conn = new PDO('sqlite:dance.db');
-// mysql:host=127.0.0.1;dbname=dance', 'root', 'aragog743'
-# Build SQL SELECT statement including x and y columns
 $sql = 'SELECT *, Latitude AS x, Longitude AS y FROM Twitter';
 
 if (isset($_GET['bbox']) || isset($_POST['bbox'])) {

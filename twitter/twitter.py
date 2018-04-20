@@ -43,7 +43,7 @@ def params_unique_combination(baseurl, params_d):
 	return baseurl + "_".join(results_keys)
 
 
-def get_from_twitter(coords, count=25):
+def get_from_twitter(coords, query='dance', count=25):
     try:
         baseurl = "https://api.twitter.com/1.1/search/tweets.json"
         params_d = {}
@@ -134,8 +134,8 @@ if __name__ == "__main__":
             for row in reader:
                 if row[0] != 'CountryName':
                     search_coords = str(row[2]) + ',' + str(row[3]) + ',1000km'
-        
-                    twitter_data = get_from_twitter(search_coords, 100)
+                    twitter_data = get_from_twitter(search_coords, count=100)
+
 
 
 

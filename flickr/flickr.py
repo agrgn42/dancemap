@@ -112,11 +112,11 @@ class Photo(object):
         return "{}\n{}\n{}\n{}\n".format(self.title, self.date_taken, self.url, self.photo_geo_info())
 
 
-def get_data(queryterm_1):
+def get_data(query = 'dance china'):
 
 
     photo_ids = []
-    flickr_dance_request = get_flickr_data(tag_search = queryterm_1)
+    flickr_dance_request = get_flickr_data(tag_search = query)
     for diction in flickr_dance_request["photos"]["photo"]:
         photo_ids.append(diction["id"])
 
@@ -141,7 +141,7 @@ def make_photo_inst(CACHE_DICTION):
 
 if __name__ == "__main__":
 
-    get_data("dance china")
+    get_data()
     make_photo_inst(CACHE_DICTION)
 
 
