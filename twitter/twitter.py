@@ -1,4 +1,3 @@
-# from requests_oauthlib import OAuth1
 from requests_oauthlib import OAuth1Session
 import json
 import sys
@@ -14,9 +13,7 @@ consumer_secret = CONSUMER_SECRET
 access_token = ACCESS_KEY
 access_secret = ACCESS_SECRET
 
-#Code for OAuth starts
 oauth = OAuth1Session(consumer_key, consumer_secret, access_token, access_secret)
-#Code for OAuth ends
 
 
 CACHE_FNAME = 'twitter_cache.json'
@@ -34,6 +31,22 @@ except:
 ###########################################
 
 
+class Tweet(object):
+    def __init__(self, tweet_dict):
+        self.id_str = tweet_dict['id_str']
+        self.tweet_text = tweet_dict['text']
+        self.date_created = tweet_dict['created_at']
+        self.country = tweet_dict['place']['country']
+        self.latitude = tweet_dict['place']['bounding_box']['coordinates'][0][0][0]
+        self.longitude = tweet_dict['place']['bounding_box']['coordinates'][0][0][1]
+        try:
+            self.url = tweet_dict['entities']['urls'][0]['url']
+
+        except: 
+            self.url = ''
+
+
+
 # generate unique identifier for each api request
 def params_unique_combination(baseurl, params_d):
 	alphabetized_keys = sorted(params_d.keys())
@@ -41,6 +54,7 @@ def params_unique_combination(baseurl, params_d):
 	for k in alphabetized_keys:
 		results_keys.append("{}-{}".format(k, params_d[k]))
 	return baseurl + "_".join(results_keys)
+
 
 
 def get_from_twitter(coords, query='dance', count=25):
@@ -69,24 +83,7 @@ def get_from_twitter(coords, query='dance', count=25):
 
 
 
-class Tweet(object):
-    def __init__(self, tweet_dict):
-        self.id_str = tweet_dict['id_str']
-        self.tweet_text = tweet_dict['text']
-        self.date_created = tweet_dict['created_at']
-        self.country = tweet_dict['place']['country']
-        self.latitude = tweet_dict['place']['bounding_box']['coordinates'][0][0][0]
-        self.longitude = tweet_dict['place']['bounding_box']['coordinates'][0][0][1]
-        try:
-            self.url = tweet_dict['entities']['urls'][0]['url']
-
-        except: 
-            self.url = ''
-
-
-
 def get_geotagged(CACHE_DICTION):
-
 
     geo_tagged = {'statuses': []}
     
@@ -102,6 +99,7 @@ def get_geotagged(CACHE_DICTION):
                 geo_tagged['statuses'].append(geoitem)
 
     return geo_tagged
+
 
 
 def make_tweet_inst(geo_tagged):
@@ -128,7 +126,7 @@ if __name__ == "__main__":
 
 
     with open(COORDS_FNAME) as infile:
-        reader = csv.reader(infile) # comma is default delimiter
+        reader = csv.reader(infile)
         
         while len(CACHE_DICTION.items()) < 100:
             for row in reader:

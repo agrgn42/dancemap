@@ -31,9 +31,6 @@ youtube_contents = youtube_file.read()
 youtube_dict = json.loads(youtube_contents)
 youtube_file.close()
 
-# proj3_choc_test.py
-# You must NOT change this file. You can comment stuff out while debugging but
-# don't forget to restore it to its original form!
 
 class TestDatabase(unittest.TestCase):
 

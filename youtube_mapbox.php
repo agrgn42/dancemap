@@ -5,6 +5,7 @@
  * Author:  Bryan R. McBride, GISP
  * Contact: bryanmcbride.com
  * GitHub:  https://github.com/bmcbride/PHP-Database-GeoJSON
+ * MODIFIED BY: Angela Schöpke to use sqlite instead of mysql db
  */
 
 # Connect to MySQL database

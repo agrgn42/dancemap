@@ -2,7 +2,6 @@ import json
 import requests
 import webbrowser
 import csv
-# from secret_data import FLICKR_KEY, NYT_KEY
 from geotext import GeoText
 import time
 
@@ -20,14 +19,30 @@ except:
     CACHE_DICTION = {}
 
 
-# fcountries = "countries.json"
-# fcountries_obj = open(fcountries, "r")
-# fcountries_contents = fcountries_obj.read()
-# COUNTRIES_DICT = json.loads(fcountries_contents)
-# fcountries_obj.close()
-
 
 #####################
+
+
+class Photo(object):
+    def __init__(self, photo_dict):
+        self.title = photo_dict["photo"]["title"]["_content"]
+        self.date_taken = photo_dict["photo"]["dates"]["taken"]
+        if "country" in photo_dict["photo"]["location"]:
+            self.country = photo_dict["photo"]["location"]["country"]["_content"]
+        else:
+            self.country = ""
+        self.latitude = photo_dict["photo"]["location"]["latitude"]
+        self.longitude = photo_dict["photo"]["location"]["longitude"]
+        for each in photo_dict["photo"]["urls"]["url"]:
+            self.url = each["_content"]
+
+    def photo_geo_info(self):
+        return self.country, self.latitude, self.longitude
+
+    def __str__(self):
+        return "{}\n{}\n{}\n{}\n".format(self.title, self.date_taken, self.url, self.photo_geo_info())
+
+
 
 def params_unique_combination(baseurl, params_d):
     alphabetized_keys = sorted(params_d.keys())
@@ -35,6 +50,7 @@ def params_unique_combination(baseurl, params_d):
     for k in alphabetized_keys:
         results_keys.append("{}-{}".format(k, params_d[k]))
     return baseurl + "_".join(results_keys)
+
 
 
 def get_flickr_data(tag_search, num_photos=100):
@@ -92,28 +108,9 @@ def get_flickr_photos_data(each_id):
 	    fwrite.close()
 	    return CACHE_DICTION[unique_identifier]
 
-class Photo(object):
-    def __init__(self, photo_dict):
-    	self.title = photo_dict["photo"]["title"]["_content"]
-    	self.date_taken = photo_dict["photo"]["dates"]["taken"]
-    	if "country" in photo_dict["photo"]["location"]:
-    		self.country = photo_dict["photo"]["location"]["country"]["_content"]
-    	else:
-    		self.country = ""
-    	self.latitude = photo_dict["photo"]["location"]["latitude"]
-    	self.longitude = photo_dict["photo"]["location"]["longitude"]
-    	for each in photo_dict["photo"]["urls"]["url"]:
-    		self.url = each["_content"]
-
-    def photo_geo_info(self):
-    	return self.country, self.latitude, self.longitude
-
-    def __str__(self):
-        return "{}\n{}\n{}\n{}\n".format(self.title, self.date_taken, self.url, self.photo_geo_info())
 
 
 def get_data(query = 'dance china'):
-
 
     photo_ids = []
     flickr_dance_request = get_flickr_data(tag_search = query)
@@ -124,6 +121,7 @@ def get_data(query = 'dance china'):
     	flickr_photos_request = get_flickr_photos_data(each_id)
 
     return photo_ids
+
 
     
 def make_photo_inst(CACHE_DICTION):

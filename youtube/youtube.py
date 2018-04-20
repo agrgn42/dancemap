@@ -22,6 +22,22 @@ except:
 
 ####################################################
 
+
+class Video(object):
+	def __init__(self, video_dict):
+		self.title = video_dict['snippet']['title']
+		self.date_created = video_dict['snippet']['publishedAt']
+		try:
+			self.place_name = video_dict['recordingDetails']['locationDescription']
+		except:
+			self.place_name = ''
+		self.latitude = video_dict['recordingDetails']['location']['latitude']
+		self.longitude = video_dict['recordingDetails']['location']['longitude']
+		self.url = 'https://www.youtube.com/watch?v=' + video_dict['id']
+		self.thumbnail = video_dict['snippet']['thumbnails']['default']['url']
+
+
+
 # generate unique identifier for each api request
 def params_unique_combination(baseurl, params_d):
 	alphabetized_keys = sorted(params_d.keys())
@@ -29,6 +45,7 @@ def params_unique_combination(baseurl, params_d):
 	for k in alphabetized_keys:
 		results_keys.append("{}-{}".format(k, params_d[k]))
 	return baseurl + "_".join(results_keys)
+
 
 
 def youtube_search(query='dance', location='-29.3166,27.4833', location_radius='1000km', max_results=50,):
@@ -64,13 +81,13 @@ def youtube_search(query='dance', location='-29.3166,27.4833', location_radius='
 			part='id,snippet',
 			maxResults=max_results
 		).execute()
-		# print(type(youtube_response))
 		CACHE_DICTION[unique_identifier] = youtube_response
 		dumped_json_cache = json.dumps(CACHE_DICTION)
 		fwrite = open(CACHE_FNAME,'w')
 		fwrite.write(dumped_json_cache)
 		fwrite.close()
 		return CACHE_DICTION[unique_identifier]
+
 
 
 def video_location(video_ids):
@@ -99,20 +116,6 @@ def video_location(video_ids):
 		return CACHE_DICTION[unique_identifier]
 
 
-class Video(object):
-	def __init__(self, video_dict):
-		self.title = video_dict['snippet']['title']
-		self.date_created = video_dict['snippet']['publishedAt']
-		try:
-			self.place_name = video_dict['recordingDetails']['locationDescription']
-		except:
-			self.place_name = ''
-		self.latitude = video_dict['recordingDetails']['location']['latitude']
-		self.longitude = video_dict['recordingDetails']['location']['longitude']
-		self.url = 'https://www.youtube.com/watch?v=' + video_dict['id']
-		self.thumbnail = video_dict['snippet']['thumbnails']['default']['url']
-
-
 
 def make_video_inst(CACHE_DICTION):
 
@@ -125,9 +128,7 @@ def make_video_inst(CACHE_DICTION):
 				pass
 
 	videos = []
-
 	video_ids = ','.join(search_videos[:50])
-
 	responses = video_location(video_ids)
 	for video in responses['items']:
 		videos.append(Video(video))
