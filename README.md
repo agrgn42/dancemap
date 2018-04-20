@@ -1,7 +1,7 @@
 # dancemap
 
 # Program Overview
-This program opens an HTML page using Python's Flask and weebbrowser modules. 
+This program opens an HTML page using Python's Flask module. 
 
 This web page features a d3.js world map visualization constructed by Angela Schopke.
 The program populates this map visualization with data retrieved via Flickr, Twitter, and YouTube Data APIs (details below), stored in an SQL database, and called by this program's Flask application. A php script allows this map-to-database connection to function. 
@@ -108,6 +108,15 @@ NOTE that the map may take several minutes to populate with new data given that 
 To view the map, open your web browser and enter the following URL...
 
   http://localhost:5000
+  
+
+UNDERSTANDING THE MAP DISPLAY:
+
+Flickr datapoints will be displayed as pink icons that you may click on to expand a tooltip detailing the photo's title, country of origin, and url. You may click on the url to view the photo.
+
+YouTube datapoints will be displayed as orange icons that you may click on to expand a tooltip detailing the video's title, country of origin (if available), and url. You may click on the url to view the video.
+
+Twitter datapoints will be displayed as blue icons that you may click on to expand a tooltip detailing the Tweet's text, country of origin, and url. You may click on the url to view the full Tweet.
 
 
 CHOOSING DIFFERENT MAP VIEWS:
