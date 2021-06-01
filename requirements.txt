@@ -33,5 +33,5 @@ ruamel-yaml==0.15.35
 six==1.11.0
 smmap2==2.0.3
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
 Werkzeug==0.14.1
